@@ -1,4 +1,4 @@
-# 02 – Promise Executor
+## [02 – Promise Executor](https://bigfrontend.dev/quiz/2-promise-executor)
 
 ## ❓ Question: What is the output of the following code?
 
