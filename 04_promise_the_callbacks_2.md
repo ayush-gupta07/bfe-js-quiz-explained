@@ -1,4 +1,4 @@
-# [03 - Promise then callbacks 2](https://bigfrontend.dev/quiz/4-Promise-then-callbacks-II)
+# [04 - Promise then callbacks 2](https://bigfrontend.dev/quiz/4-Promise-then-callbacks-II)
 
 ## ❓ Question
 
