@@ -99,12 +99,6 @@ setTimeout(() => {
 
 ---
 
-## 🏷️ Tags
-
-`Promise` `Microtask` `Macrotask` `Event Loop` `JavaScript Output` `Execution Order`
-
----
-
 ## 🧭 Summary Checklist
 
 - [x] `new Promise()` runs immediately.
