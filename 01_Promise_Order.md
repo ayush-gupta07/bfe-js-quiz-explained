@@ -1,7 +1,5 @@
 # [01 - Promise Order](https://bigfrontend.dev/quiz/1-promise-order)
 
----
-
 ## ❓ Question
 
 ```js

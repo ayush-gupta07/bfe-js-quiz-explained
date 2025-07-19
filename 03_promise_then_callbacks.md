@@ -1,7 +1,5 @@
 # [03 - Promise then callbacks](https://bigfrontend.dev/quiz/3-promise-then-callbacks)
 
-# 03 - Promise Then Callbacks
-
 ## ❓ Question
 
 ```js

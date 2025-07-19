@@ -1,7 +1,5 @@
 # [02 – Promise Executor](https://bigfrontend.dev/quiz/2-promise-executor)
 
----
-
 ## ❓ Question
 
 ```js

@@ -1,7 +1,5 @@
 # [05 - Scope and Closures with `var` vs `let`](https://bigfrontend.dev/quiz/block-scope-1)
 
----
-
 ## ❓ Question
 
 ```js

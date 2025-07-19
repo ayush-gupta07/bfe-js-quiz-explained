@@ -1,7 +1,5 @@
 # [07 - Increment Operator](https://bigfrontend.dev/quiz/Increment-Operator)
 
----
-
 ## ❓ Question
 
 What does the code snippet below output via `console.log`?

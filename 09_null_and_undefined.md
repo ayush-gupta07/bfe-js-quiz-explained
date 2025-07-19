@@ -1,7 +1,5 @@
 # [09 - Null and Undefined in JavaScript](https://bigfrontend.dev/quiz/null-and-undefined)
 
----
-
 ## ❓ Question
 
 ```js
