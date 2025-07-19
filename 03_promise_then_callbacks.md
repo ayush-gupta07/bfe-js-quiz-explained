@@ -51,7 +51,7 @@ Let's trace through each `.then()` in sequence:
 
 ## ✅ Things to Remember / Gotchas
 
-- 🔹 If you pass a **non-function** (like a number) to `.then()`, it is treated as `.then(val => val)`.
-- 🔹 If you pass a **promise instead of a function** to `.then()`, it is treated as `.then(() => thatPromise)`.
-- 🔹 Chained `.then()` callbacks are only triggered with functions.
-- 🔹 Always ensure to pass function references or lambdas in `.then()`.
+- If you pass a **non-function** (like a number) to `.then()`, it is treated as `.then(val => val)`.
+- If you pass a **promise instead of a function** to `.then()`, it is treated as `.then(() => thatPromise)`.
+- Chained `.then()` callbacks are only triggered with functions.
+- Always ensure to pass function references or lambdas in `.then()`.
