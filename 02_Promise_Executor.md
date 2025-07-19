@@ -1,6 +1,8 @@
 # [02 – Promise Executor](https://bigfrontend.dev/quiz/2-promise-executor)
 
-## ❓ Question: What is the output of the following code?
+---
+
+## ❓ Question
 
 ```js
 new Promise((resolve, reject) => {
@@ -16,43 +18,30 @@ new Promise((resolve, reject) => {
 
 ---
 
-## ✅ Output:
+### ✅ Output
+
 ```
 1
 ```
 
 ---
 
-## 🧠 Step-by-Step Explanation:
+### 🧠 Step-by-Step Explanation / Internal Implementation
 
-1. **Promise executor function** is called immediately when the promise is created.
-2. The first call to `resolve(1)` **settles the promise as fulfilled** with the value `1`.
-3. Any further calls to `resolve(2)` or `reject('error')` are **ignored** because a promise can be settled only once.
-4. The `.then()` method is triggered with the resolved value:
-   - `value => console.log(value)` → prints `1`.
-5. The rejection handler in `.then()` is not executed because the promise was resolved, not rejected.
-
----
-
-## 📌 Things to Remember
-
-- A Promise can be **settled only once** – either resolved or rejected.
-- Further calls to `resolve` or `reject` are ignored silently once the first one is executed.
-- Both `resolve(2)` and `reject('error')` have **no effect** here.
+1. `new Promise(...)` is invoked with an executor function. This function receives two arguments: `resolve` and `reject`.
+2. `resolve(1)` is called first — this settles the promise into a "fulfilled" state with the value `1`.
+3. The second call `resolve(2)` is **ignored** because a promise can only be settled once. Further calls to `resolve` or `reject` are no-ops.
+4. Similarly, `reject('error')` is **ignored** as well, since the promise is already fulfilled.
+5. The `then()` method is attached with two handlers:
+   - `.then(onFulfilled, onRejected)`
+   - Since the promise was fulfilled with value `1`, the first handler `onFulfilled` is invoked with `value = 1`, and `"1"` is printed.
+6. The second handler `onRejected` is not invoked.
 
 ---
 
-## ⚠️ Gotchas to Watch Out For
+### ⚠️ Things to Remember / Gotchas
 
-- **No error is thrown** for calling `resolve`/`reject` multiple times – they are simply ignored.
-- If you're expecting multiple results, use an array or another mechanism — Promises are strictly **one-time-settle**.
-- **Order matters** – only the first `resolve` or `reject` is honored.
-
----
-
-## ✅ Summary Checklist
-
-- [x] Promise executor runs immediately.
-- [x] Only the first call to `resolve`/`reject` is respected.
-- [x] `.then()` only responds to the first settled state.
-- [x] Use external control structures for multiple values (e.g., arrays, streams).
+- A promise can only be settled once — either fulfilled or rejected. Any subsequent calls to `resolve()` or `reject()` are ignored.
+- The executor function inside a `Promise` runs **synchronously**, but the `.then()` handlers are executed **asynchronously** (microtask queue).
+- Even if `reject()` is called after `resolve()`, it will be ignored because the promise is already settled.
+- This is why only `1` gets printed, not `2` or `'error'`.

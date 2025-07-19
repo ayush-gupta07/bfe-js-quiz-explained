@@ -1,4 +1,10 @@
-### 📘 07_increment_operator.md
+# [07 - Increment Operator](https://bigfrontend.dev/quiz/Increment-Operator)
+
+---
+
+## ❓ Question
+
+What does the code snippet below output via `console.log`?
 
 ```js
 let a = 1
@@ -11,7 +17,7 @@ console.log(c)
 
 ---
 
-### ✅ Output
+## Output
 
 ```
 3
@@ -21,67 +27,36 @@ console.log(c)
 
 ---
 
-### 🔍 Step-by-Step Explanation
+## Step by Step Explanation / Internal Implementation
 
-1. `let a = 1;`  
-   ➤ Variable `a` is initialized with `1`.
+### Initial State:
+- `a = 1`
 
----
+### Step 1: `const b = ++a`
+- `++a` is **pre-increment**, meaning `a` is incremented **before** its value is assigned to `b`.
+- `a` becomes `2`, then `b` is assigned `2`.
+- Internally:
+  - `a = a + 1 // a is now 2`
+  - `b = a`
 
-2. `const b = ++a;`  
-   ➤ This is a **prefix increment**.  
-   ➤ It increments `a` to `2` **first**, then assigns the value to `b`.  
-   ➤ So `a = 2`, `b = 2`.
+### Step 2: `const c = a++`
+- `a++` is **post-increment**, meaning the value of `a` is assigned to `c` **before** `a` is incremented.
+- `c` gets `2`, then `a` becomes `3`.
+- Internally:
+  - `c = a // c gets 2`
+  - `a = a + 1 // a is now 3`
 
----
-
-3. `const c = a++;`  
-   ➤ This is a **postfix increment**.  
-   ➤ It assigns current `a` (which is `2`) to `c`, and **then** increments `a` to `3`.  
-   ➤ So `c = 2`, and now `a = 3`.
-
----
-
-4. `console.log(a)` → `3`  
-5. `console.log(b)` → `2`  
-6. `console.log(c)` → `2`
-
----
-
-### ⚙️ What JavaScript Does Internally
-
-#### `++a` is interpreted as:
-
-```js
-a = a + 1        // Read `a`, add 1, assign back to `a`
-return a         // Return new value (2)
-```
-
-#### `a++` is interpreted as:
-
-```js
-let temp = a     // Store original value (2)
-a = a + 1        // Increment `a` → now 3
-return temp      // Return original value (2)
-```
-
-Even when not assigning to a new variable, the increment affects `a` directly because of the hidden memory update.
+### Step 3: Final `console.log` statements:
+- `console.log(a)` → `3`
+- `console.log(b)` → `2`
+- `console.log(c)` → `2`
 
 ---
 
-### 🧠 Things to Remember
+## Things to Remember / Gotchas
 
-- `++a` (prefix) → Increments first, then returns.
-- `a++` (postfix) → Returns first, then increments.
-- JavaScript **always updates `a` internally**, even if result is not assigned.
-- Internal transformation: `++a → a = a + 1`, `a++ → return temp = a; a = a + 1`.
-
----
-
-### ❗ Gotchas to Watch Out For
-
-- **Don’t assume** `a++` does nothing if not assigned — `a` **does** get incremented!
-- These hidden assignments happen behind the scenes even if the result is not used.
-- `const b = ++a` and `const c = a++` behave differently because of **return value order**.
-
----
+- `++a` (**pre-increment**): Increments the value, **then** returns it.
+- `a++` (**post-increment**): Returns the value, **then** increments it.
+- Internally, even without assigning to a variable, post/pre increment directly mutates the variable in-place.
+- `a++` is not just a value-returning expression; it also mutates `a` after usage.
+- If you're debugging or tracing, remember: **the change happens even if you don’t capture it in another variable.**

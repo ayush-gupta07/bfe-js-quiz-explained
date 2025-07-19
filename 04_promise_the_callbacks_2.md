@@ -1,43 +1,38 @@
 # [04 - Promise then callbacks 2](https://bigfrontend.dev/quiz/4-Promise-then-callbacks-II)
 
-## ❓ Question
+---
 
-What does the following code output?
+## ❓ Question
 
 ```js
 Promise.resolve(1)
-  .then((val) => {
-    console.log(val);
-    return val + 1;
-  })
-  .then((val) => {
-    console.log(val);
-  })
-  .then((val) => {
-    console.log(val);
-    return Promise.resolve(3).then((val) => {
-      console.log(val);
-    });
-  })
-  .then((val) => {
-    console.log(val);
-    return Promise.reject(4);
-  })
-  .catch((val) => {
-    console.log(val);
-  })
-  .finally((val) => {
-    console.log(val);
-    return 10;
-  })
-  .then((val) => {
-    console.log(val);
-  });
+.then((val) => {
+  console.log(val)
+  return val + 1
+}).then((val) => {
+  console.log(val)
+}).then((val) => {
+  console.log(val)
+  return Promise.resolve(3)
+    .then((val) => {
+      console.log(val)
+    })
+}).then((val) => {
+  console.log(val)
+  return Promise.reject(4)
+}).catch((val) => {
+  console.log(val)
+}).finally((val) => {
+  console.log(val)
+  return 10
+}).then((val) => {
+  console.log(val)
+})
 ```
 
 ---
 
-## ✅ Output
+## 🧾 Output
 
 ```
 1
@@ -52,54 +47,48 @@ undefined
 
 ---
 
-## 🔍 Explanation (Step-by-Step)
+## 🔍 Step-by-step Explanation / Internal Implementation
 
-1. `Promise.resolve(1)` creates a resolved promise with value `1`.
-2. First `.then()` logs `1` and returns `2`.
-3. Second `.then()` receives `2`, logs it, but returns `undefined`.
-4. Third `.then()` receives `undefined`, logs it, then returns a **nested** promise:
-   - `Promise.resolve(3).then(...)` logs `3`, but does not return anything ⇒ resolves with `undefined`.
-5. Fourth `.then()` receives `undefined`, logs it, and returns `Promise.reject(4)` ⇒ the chain enters the **rejected** state.
-6. `.catch()` catches the rejection value `4`, logs it, and **implicitly returns `undefined`**, making the chain resolved again.
-7. `.finally()` always runs regardless of state:
-   - Logs `undefined` (it receives nothing or previous state’s value).
-   - Returns `10` but doesn't change chain value (finally always passes through).
-8. Final `.then()` receives **previous value**, which is `undefined`, and logs it.
+1. `Promise.resolve(1)` — returns a promise resolved with `1`.
 
----
+2. First `.then((val) => { console.log(val); return val + 1 })`
+   - Logs `1`
+   - Returns `2`
 
-## 🧠 Things to Remember
+3. Second `.then((val) => { console.log(val) })`
+   - Logs `2`
+   - Returns `undefined` implicitly
 
-- If a `.then()` doesn’t return anything, it passes `undefined` to the next handler.
-- A nested promise chain needs explicit return values to propagate results.
-- `finally()` does **not** affect the resolved value of the chain.
-- `catch()` changes state back to fulfilled unless it throws/rejects again.
+4. Third `.then((val) => { ... })`
+   - `val` is `undefined`, logs `undefined`
+   - Returns a **nested** promise: `Promise.resolve(3).then(console.log)`
+     - Logs `3` (inside nested `.then`)
+     - Since that inner `.then()` has no return, the outer `.then()` also resolves to `undefined`
 
----
+5. Fourth `.then((val) => { ... })`
+   - Receives `undefined`, logs `undefined`
+   - Returns `Promise.reject(4)` → goes to the `catch`
 
-## ⚠️ Gotchas
+6. `.catch((val) => { console.log(val) })`
+   - Logs `4`
+   - Implicitly returns `undefined`, resolves chain again
 
-- **Nested Promise Resolution**: Returning `Promise.resolve(3).then(...);` but the inner `.then()` doesn't return anything ⇒ full chain gets `undefined`.
-- **finally() Return Value Is Ignored**: Even if `finally()` returns `10`, the next `.then()` still receives the original value (in this case, `undefined`).
-- **Multiple Chained .then()**: Make sure to **always return** something if next handler relies on value.
-- **Returning Rejected Promises**: `Promise.reject(4)` inside `.then()` will directly skip the next `.then()` and move to `.catch()`.
+7. `.finally((val) => { console.log(val); return 10 })`
+   - `finally` receives `undefined` (but argument is ignored)
+   - Logs `undefined`
+   - Returns `10`, but it's **ignored** (finally doesn't affect the resolved value)
 
----
-
-## 📌 Summary Checklist
-
-- [x] First promise resolved immediately.
-- [x] Explicit return of `val + 1`.
-- [x] Implicit `undefined` propagation.
-- [x] Nested Promise resolved without returning ⇒ `undefined`.
-- [x] Error recovery with `catch`.
-- [x] `finally` doesn’t alter resolved value.
-- [x] Final value remains `undefined`.
+8. Final `.then((val) => { console.log(val) })`
+   - Receives `undefined` (from previous `.catch()`)
+   - Logs `undefined`
 
 ---
 
-## 🎓 Learning Outcome
+## 🧠 Things to Remember / Gotchas
 
-This question teaches the **importance of return values**, how **nested promises** affect chain resolution, and the **subtle behavior of `.finally()`**. These are crucial for writing robust and predictable asynchronous code.
-
----
+- A `.then()` with no `return` resolves with `undefined`.
+- Nested `.then()` without a return causes outer promise to resolve with `undefined`.
+- `.catch()` transforms rejection → resolution with the return value (`undefined` here).
+- `.finally()` does not affect the promise chain’s value unless it throws.
+- Even if `finally` returns a value, it **does not override** the existing resolution/rejection.
+- Internal implementation: Each `.then()` creates a microtask; nested promises also return microtasks. JavaScript schedules them accordingly using the microtask queue.

@@ -1,8 +1,8 @@
 # [01 - Promise Order](https://bigfrontend.dev/quiz/1-promise-order)
 
-## 🧪 Question
+---
 
-What is the output of the following code?
+## ❓ Question
 
 ```js
 console.log(1);
@@ -49,81 +49,39 @@ setTimeout(() => {
 
 ---
 
-## 🔍 Step-by-Step Explanation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
-1. **`console.log(1);`** → Immediately logs `1`.
-2. **New Promise creation** → Executes the executor function synchronously:
-   - `console.log(2);` → logs `2`
-   - `resolve();` → schedules `.then()` callbacks (microtasks)
-   - `console.log(3);` → logs `3` (runs **after** resolve)
-3. **`console.log(4);`** → logs `4`
-4. **First `then()` is scheduled** → waits in microtask queue.
-5. **Second `then()` is chained** → also queued as microtask after the first.
-6. **`console.log(7);`** → logs `7`
-7. **Microtask Queue runs**:
-   - `console.log(5);` → logs `5`
-   - `console.log(6);` → logs `6`
-8. **Macro tasks (timers)**:
-   - `setTimeout(..., 0)` → logs `9`
-   - `setTimeout(..., 10)` → logs `8`
+1. **Synchronous phase** (Runs immediately on the call stack):
+   - `console.log(1)` → prints `1`
+   - `new Promise(...)` is instantiated:
+     - Logs `2`
+     - `resolve()` is called → this queues the `.then()` callbacks in **microtask queue**
+     - Logs `3`
+   - `console.log(4)` → prints `4`
+   - `promise.then(...)` and `.then(...)` chained → callbacks registered to run after microtasks
+   - `console.log(7)` → prints `7`
+   - Two `setTimeout()` calls queued in **macrotask queue**
 
----
+2. **Microtask phase (after call stack is empty):**
+   - `.then(() => console.log(5))` → prints `5`
+   - `.then(() => console.log(6))` → prints `6`
 
-## 📌 Key Learnings
+3. **Macrotask phase:**
+   - `setTimeout(..., 0)` → prints `9`
+   - `setTimeout(..., 10)` → prints `8`
 
-- Promise executors run synchronously.
-- `.then()` callbacks run asynchronously in **microtask queue**, after the main stack is empty.
-- `setTimeout(fn, 0)` is a **macrotask** and runs **after microtasks**.
-- Even after `resolve()` is called, the remaining code in the executor continues to run.
+### 🔍 Internal Mechanics
 
----
-
-## 🧠 Things to Remember
-
-- Microtasks (like `.then()`) run before macrotasks (`setTimeout`).
-- Code after `resolve()` still runs unless returned.
-- `.then().then()` chains microtasks one after another.
-- `setTimeout(..., 0)` still doesn’t run before microtasks.
+- Microtasks (like `.then`) always run **after the current script finishes** but **before** any macrotasks.
+- `resolve()` is synchronous — it schedules the `.then()` callbacks but **does not stop further synchronous execution**.
+- The code after `resolve()` (i.e., `console.log(3)`) still runs synchronously.
 
 ---
 
-## ⚠️ Gotchas to Watch Out For
+## ⚠️ Things to Remember / Gotchas
 
-- **Post-resolve Execution**: Code after `resolve()` still executes. If you want to prevent further code from executing after resolving, use `return resolve();`
-  ```js
-  resolve();
-  console.log('this will still run'); // YES
-  return resolve(); // preferred if nothing should run afterward
-  ```
-- **Order Confusion**: `.then()`s may look sequential but run after the call stack clears.
-
----
-
-## 🧭 Summary Checklist
-
-- [x] `new Promise()` runs immediately.
-- [x] `.then()` goes to microtask queue.
-- [x] `setTimeout()` goes to macrotask queue.
-- [x] Microtasks flush **before** next macrotask.
-- [x] Executor runs all lines unless interrupted with `return`.
-
----
-
-## 📺 Visual Timeline
-
-```
-Call Stack:
-1
-2
-3
-4
-7
-
-Microtasks:
-5
-6
-
-Macrotasks:
-9
-8
-```
+- `resolve()` **does not return** or halt execution inside the Promise executor.
+  → You must explicitly use `return resolve()` if you want to stop execution after resolving.
+- `.then()` chains are microtasks, and **always execute after** the current call stack is clear.
+- Even `setTimeout(..., 0)` is placed in the **macrotask queue**, meaning it runs **after all microtasks**.
+- Console output order tests your knowledge of **execution phases**, **promise resolution**, and **event loop**.
