@@ -193,3 +193,25 @@ Each question is documented in a separate `.md` file named as follows:
 - [132 Banana](./questions/132_banana.md)
 - [133 Tostring](./questions/133_tostring.md)
 - [134 Object Groupby](./questions/134_object_groupby.md)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on how to:
+- Add new questions
+- Improve explanations
+- Fix typos or errors
+- Suggest better examples
+
+---
+
+## ⭐ Show Your Support
+
+If this repository helped you in your JavaScript interview prep, please give it a star! ⭐
