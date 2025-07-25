@@ -23,7 +23,7 @@ c()
 
 ---
 
-## 🧾 Output
+## ✅ Output
 
 ```
 function
@@ -36,7 +36,7 @@ string
 
 ---
 
-## 🔍 Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 1. `function a() {}` is a **function declaration**, hoisted to the top of the scope. So `typeof a` is `"function"`.
 

@@ -1,7 +1,5 @@
 # [17 - Reduce](https://bigfrontend.dev/quiz/reduce)
 
----
-
 ## ❓ Question
 ```js
 [1,2,3].reduce((a,b) => {
@@ -13,7 +11,7 @@
 }, 0);
 ```
 
-## Output
+## ✅ Output
 ```
 1 2
 undefined 3
@@ -22,7 +20,7 @@ undefined 2
 undefined 3
 ```
 
-## Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 ### First `reduce` Call (No Initial Value):
 - The first element (`1`) is used as the initial accumulator `a`.
@@ -40,7 +38,7 @@ undefined 3
 - If no initial value is passed, the first array element is the initial accumulator and iteration starts from index 1.
 - If an initial value is provided, iteration starts from index 0.
 
-## Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 - Always return a value inside `reduce`; otherwise, accumulator becomes `undefined`.
 - Use `forEach` if you only want side effects like `console.log`, not accumulation.
 - Passing an initial value is safer, especially for empty arrays.

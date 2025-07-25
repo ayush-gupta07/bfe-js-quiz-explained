@@ -21,7 +21,7 @@ console.log(a[0], a[1], a[2])
 
 ---
 
-## Output
+## ✅ Output
 
 ```
 1
@@ -41,7 +41,7 @@ undefined
 
 ---
 
-## Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 1. `const a = [0]` initializes an array with one element at index 0.
 2. `console.log(a.length)` logs `1` as there's only one element.
@@ -60,7 +60,7 @@ undefined
 
 ---
 
-## Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - Assigning to a high index creates a sparse array — intermediate indices become "holes".
 - `for...of` iterates over all indices, including holes (returns `undefined`).

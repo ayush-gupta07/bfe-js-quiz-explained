@@ -1,9 +1,6 @@
 # [15 - Instanceof](https://bigfrontend.dev/quiz/instanceOf)
 
----
-
 ## ❓ Question
-
 ```js
 console.log(typeof null)
 console.log(null instanceof Object) 
@@ -24,7 +21,7 @@ console.log((() => {}) instanceof Object)
 
 ---
 
-## 🧾 Output
+## ✅ Output
 
 ```
 "object"
@@ -46,7 +43,7 @@ true
 
 ---
 
-## 🔍 Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 ### 🔸 `typeof null` and `null instanceof Object`
 - `typeof null` → `"object"` (historical JavaScript bug).
@@ -73,7 +70,7 @@ true
 
 ---
 
-## ✅ Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - `typeof null` returns `"object"` – a **well-known bug** in JS.
 - Primitives (`1`, `true`, etc.) are **not** instances of their constructor functions.

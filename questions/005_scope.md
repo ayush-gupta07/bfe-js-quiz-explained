@@ -1,7 +1,6 @@
 # [05 - Scope and Closures with `var` vs `let`](https://bigfrontend.dev/quiz/block-scope-1)
 
 ## ❓ Question
-
 ```js
 for (var i = 0; i < 5; i++) {
   setTimeout(() => console.log(i), 0)
@@ -14,7 +13,7 @@ for (let i = 0; i < 5; i++) {
 
 ---
 
-## Output
+## ✅ Output
 
 ```
 5
@@ -31,7 +30,7 @@ for (let i = 0; i < 5; i++) {
 
 ---
 
-## Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 ### Part 1: `var` loop
 
@@ -68,7 +67,7 @@ JavaScript internally creates a new environment record for each iteration with i
 
 ---
 
-## Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - `var` does **not** create a new scope per iteration — all timeouts share the same `i`.
 - `let` **does** create a new block scope in every loop iteration.

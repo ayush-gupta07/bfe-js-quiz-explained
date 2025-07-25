@@ -1,9 +1,6 @@
 # [07 - Increment Operator](https://bigfrontend.dev/quiz/Increment-Operator)
 
 ## ❓ Question
-
-What does the code snippet below output via `console.log`?
-
 ```js
 let a = 1
 const b = ++a
@@ -15,7 +12,7 @@ console.log(c)
 
 ---
 
-## Output
+## ✅ Output
 
 ```
 3
@@ -25,7 +22,7 @@ console.log(c)
 
 ---
 
-## Step by Step Explanation / Internal Implementation
+## 🧠 Step by Step Explanation / Internal Implementation
 
 ### Initial State:
 - `a = 1`
@@ -51,7 +48,7 @@ console.log(c)
 
 ---
 
-## Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - `++a` (**pre-increment**): Increments the value, **then** returns it.
 - `a++` (**post-increment**): Returns the value, **then** increments it.

@@ -26,7 +26,7 @@ true
 
 ---
 
-## 🔍 Step-by-Step Explanation / Internal Implementation
+## 🧠 Step-by-Step Explanation / Internal Implementation
 
 ### 1. `0 == false`
 - Coercion occurs.
@@ -67,7 +67,7 @@ true
 
 ---
 
-## 📌 Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - `==` performs **type coercion**, which leads to unexpected results.
 - `0`, `''`, and `[]` are **loosely equal** to `false` due to coercion to `0`.

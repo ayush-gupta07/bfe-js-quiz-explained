@@ -1,9 +1,6 @@
 # [11 - Implicit Coercion II](https://bigfrontend.dev/quiz/Implicit-Conversion-II)
 
----
-
 ## ❓ Question
-
 ```js
 console.log([] + []);
 console.log([] + 1);
@@ -62,7 +59,7 @@ NaN
 
 ---
 
-## 🔍 Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - Arrays convert to strings via `.toString()` when used with `+`.
 - Arrays convert to numbers using `Number()` when used with `-`.

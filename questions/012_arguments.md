@@ -1,9 +1,6 @@
 # [12 - Arguments](https://bigfrontend.dev/quiz/arguments)
 
----
-
 ## ❓ Question
-
 ```js
 function log(a, b, c, d) {
   console.log(a, b, c, d);

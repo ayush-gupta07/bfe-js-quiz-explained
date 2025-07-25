@@ -1,9 +1,6 @@
 # [14 - Addition vs Unary Plus](https://bigfrontend.dev/quiz/Addition-vs-Unary-Plus)
 
----
-
 ### ❓ Question
-
 ```js
 console.log(1 + 2)
 console.log(1 + + 2)

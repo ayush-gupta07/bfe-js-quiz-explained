@@ -1,7 +1,5 @@
 # [18 - Promise Executor II](https://bigfrontend.dev/quiz/Promise-executor-II)
 
----
-
 ## ❓ Question
 ```js
 const p1 = Promise.resolve(1)
@@ -16,7 +14,7 @@ console.log(p3 == p4)
 console.log(p4 == p5)
 ```
 
-## Output
+## ✅ Output
 ```
 false
 true
@@ -24,7 +22,7 @@ false
 false
 ```
 
-## Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 ### Step 1: `const p1 = Promise.resolve(1)`
 - `p1` is a resolved Promise with the value `1`.
@@ -55,7 +53,7 @@ console.log(p3 == p4) // false, different Promise objects
 console.log(p4 == p5) // false, different Promise objects
 ```
 
-## Things to remember / Gotchas
+## ⚠️ Things to remember / Gotchas
 
 - `Promise.resolve(somePromise)` returns the **same promise** if `somePromise` is already a resolved Promise.
 - `.then()` **always returns a new Promise**, regardless of the return value.

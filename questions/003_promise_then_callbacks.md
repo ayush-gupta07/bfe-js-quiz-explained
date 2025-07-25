@@ -1,7 +1,6 @@
 # [03 - Promise then callbacks](https://bigfrontend.dev/quiz/3-promise-then-callbacks)
 
 ## ❓ Question
-
 ```js
 Promise.resolve(1)
   .then(() => 2)
@@ -13,7 +12,7 @@ Promise.resolve(1)
 
 ---
 
-## 🧾 Output
+## ✅ Output
 
 ```
 4
@@ -21,7 +20,7 @@ Promise.resolve(1)
 
 ---
 
-## 🔍 Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 Let's trace through each `.then()` in sequence:
 
@@ -49,7 +48,7 @@ Let's trace through each `.then()` in sequence:
 
 ---
 
-## ✅ Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - If you pass a **non-function** (like a number) to `.then()`, it is treated as `.then(val => val)`.
 - If you pass a **promise instead of a function** to `.then()`, it is treated as `.then(() => thatPromise)`.

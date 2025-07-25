@@ -1,7 +1,6 @@
 # [09 - Null and Undefined in JavaScript](https://bigfrontend.dev/quiz/null-and-undefined)
 
 ## ❓ Question
-
 ```js
 console.log(JSON.stringify([1, 2, null, 3]));
 console.log(JSON.stringify([1, 2, undefined, 3]));
@@ -76,7 +75,7 @@ JSON.stringify([1, 2, undefined, 3]);   // → "[1,2,null,3]"
 
 ---
 
-## 📌 Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - `undefined` is not a valid JSON type — it becomes `null` in arrays or is omitted in objects.
 - `null` is a valid value and is preserved during serialization.

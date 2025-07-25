@@ -1,7 +1,6 @@
 # [06 - Arrow Function](https://bigfrontend.dev/quiz/6-Arrow-Function)
 
 ## ❓Question
-
 ```js
 const obj = {
   dev: 'bfe',
@@ -49,7 +48,7 @@ console.log(obj.h()())
 console.log(obj.i()())
 ```
 
-## Output
+## ✅ Output
 
 ```
 bfe
@@ -63,7 +62,7 @@ undefined
 bfe
 ```
 
-## Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 1. `obj.a()` → Regular function → `this` refers to `obj` → returns `"bfe"`.
 2. `obj.b()` → Shorthand method → same as regular function → returns `"bfe"`.
@@ -75,7 +74,7 @@ bfe
 8. `obj.h()` → Returns `this.c`, then invokes it → still arrow function without proper `this` → returns `undefined`.
 9. `obj.i()` → Returns arrow function that closes over `this` (bound to `obj`) → returns `"bfe"`.
 
-## Things to remember / Gotchas
+## ⚠️ Things to remember / Gotchas
 
 - 🔥 **Arrow functions do not have their own `this`**. They inherit it from their enclosing lexical scope.
 - ❗ Extracting method references (like `obj.f()()`) loses the original object binding unless explicitly bound.

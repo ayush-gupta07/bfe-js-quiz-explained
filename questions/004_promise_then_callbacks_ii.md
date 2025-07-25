@@ -1,7 +1,6 @@
 # [04 - Promise then callbacks 2](https://bigfrontend.dev/quiz/4-Promise-then-callbacks-II)
 
 ## ❓ Question
-
 ```js
 Promise.resolve(1)
 .then((val) => {
@@ -30,7 +29,7 @@ Promise.resolve(1)
 
 ---
 
-## 🧾 Output
+## ✅ Output
 
 ```
 1
@@ -45,7 +44,7 @@ undefined
 
 ---
 
-## 🔍 Step-by-step Explanation / Internal Implementation
+## 🧠 Step-by-step Explanation / Internal Implementation
 
 1. `Promise.resolve(1)` — returns a promise resolved with `1`.
 
@@ -82,7 +81,7 @@ undefined
 
 ---
 
-## 🧠 Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - A `.then()` with no `return` resolves with `undefined`.
 - Nested `.then()` without a return causes outer promise to resolve with `undefined`.

@@ -1,7 +1,6 @@
 # [08 - Implicit Coercion 1](https://bigfrontend.dev/quiz/Implicit-Conversion-1)
 
-## Question
-
+## ❓ Question
 ```js
 console.log(Boolean('false'))
 console.log(Boolean(false))
@@ -15,7 +14,7 @@ console.log(Number(null))
 console.log(Number(false))
 ```
 
-## Output
+## ✅ Output
 
 ```
 true
@@ -30,7 +29,7 @@ NaN
 0
 ```
 
-## Step by Step Explanation / Internal Implementation
+## 🧠 Step by Step Explanation / Internal Implementation
 
 1. `Boolean('false')` → `'false'` is a non-empty string → coerced to `true`
 2. `Boolean(false)` → explicitly `false`
@@ -43,7 +42,7 @@ NaN
 9. `Number(null)` → null coerces to `0` → `0`
 10. `Number(false)` → false coerces to `0` → `0`
 
-## Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - `Boolean('false')` is `true` because **non-empty strings are truthy**, regardless of content.
 - `+` operator with strings leads to **string concatenation**, not numeric addition.

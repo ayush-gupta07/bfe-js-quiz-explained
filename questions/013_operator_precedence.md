@@ -1,9 +1,6 @@
 # [13 - Operator Precedence](https://bigfrontend.dev/quiz/operator-precedence)
 
----
-
 ## ❓ Question
-
 ```js
 console.log(0 == 1 == 2)
 console.log(2 == 1 == 0)
@@ -26,7 +23,7 @@ false
 
 ---
 
-## 🔍 Step-by-Step Explanation / Internal Implementation
+## 🧠 Step-by-Step Explanation / Internal Implementation
 
 JavaScript evaluates operators **left to right**, and comparison operators (`==`, `<`, `>`) return a boolean (`true` or `false`), which can get **coerced into numbers** (`true → 1`, `false → 0`) when used in further comparisons.
 
@@ -58,7 +55,7 @@ JavaScript evaluates operators **left to right**, and comparison operators (`==`
 
 ---
 
-## 🧠 Things to Remember / Gotchas
+## ⚠️ Things to Remember / Gotchas
 
 - JavaScript does not evaluate chained comparisons like `1 < x < 5` mathematically.
 - Comparisons return booleans, and booleans are coerced to numbers in further evaluations.
