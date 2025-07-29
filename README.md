@@ -212,6 +212,6 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ---
 
-## ⭐ Show Your Support
+## ⭐ Show Your Support ⭐
 
 If this repository helped you in your JavaScript interview prep, please give it a star! ⭐
