@@ -1,4 +1,4 @@
-# 📘 JavaScript Output-Based Interview Questions – BFE.dev Series
+# 📘 JavaScript Output-Based Interview Questions – BFE.dev Series !
 
 Welcome to the **JavaScript Output-Based Interview Prep** repository!  
 This repository is a comprehensive collection of 134 carefully documented questions inspired by the **BFE.dev JavaScript quiz series**.
